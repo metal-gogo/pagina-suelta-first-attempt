@@ -14,6 +14,7 @@
     "lint:css:fix": "stylelint **/*.{vue,css,scss} --ignore-path .gitignore --fix",
     "lint": "yarn lint:js && yarn lint:css",
     "lint:fix": "yarn lint:js:fix && yarn lint:css:fix",
+    "test": "yarn test:unit",
     "test:unit": "jest",
     "test:unit:watch": "npm run test:unit -- --verbose --watchAll",
     "test:unit:ci": "npm run test:unit -- --ci"
