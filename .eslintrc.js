@@ -11,10 +11,17 @@ module.exports = {
     '@nuxtjs',
     'prettier',
     'prettier/vue',
-    'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
+    'plugin:prettier/recommended',
   ],
   plugins: ['prettier'],
-  // add your custom rules here
-  rules: {},
+  rules: {
+    'vue/component-name-in-template-casing': [
+      'error',
+      'kebab-case',
+      {
+        registeredComponentsOnly: false,
+      },
+    ],
+  },
 }
