@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <nuxt-logo />
       <h1 class="title">pagina-suelta</h1>
       <div class="links">
         <a
@@ -24,10 +24,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {}
-</script>
 
 <style>
 .container {
