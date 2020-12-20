@@ -25,7 +25,7 @@
     - [Important abstractions](#important-abstractions)
     - [Notable clarification](#notable-clarification)
   - [How to contribute](#how-to-contribute)
-      - [TL;DR](#tldr)
+    - [TL;DR](#tldr)
 
 ## Tech stack
 
@@ -173,7 +173,7 @@ In the OOP world, this is known as the [bridge pattern][bridge_pattern]. The goa
 
 > Decouple an abstraction from its implementation so that the two can vary independently.
 
-For most third-party dependencies there should be a dedicated directory under the `dependencies` directory. On most cases this directory should keep the same name as the dependency that is going to be wrapped.
+For most third-party dependencies there should be a dedicated file or directory under the `plugins` directory. On most cases this directory should be named for the function it would have on the project.
 
 ### Exceptions
 
@@ -188,11 +188,11 @@ After all, we are making a **Nuxt** project, and these are the core libraries th
 
 ### Important abstractions
 
-Some abstractions are really important and it would have it's own directory.
+Some abstractions are really important and should have their own directory.
 
 ### Notable clarification
 
-It's relevant to note that we refer to dependencies to everything that imposes an API foreign to our codebase logic.
+It's relevant to note that we refer as dependencies to everything that imposes an API foreign to our codebase logic.
 
 This will provide us with the flexibility to work with a specific dependency without compromising our implementation to that.
 
@@ -206,7 +206,7 @@ On the other hand, if we've wrapped **Fetch** in an abstraction that makes sense
 
 Please read through our [contributing guidelines](/docs/contributing.md). Included are directions for opening issues, coding standards, and notes on development.
 
-#### TL;DR
+### TL;DR
 
 1. We use **git-flow** to create new features. For further information read this [guide](git_flow).
 2. Create a [Pull Request][pull_requests] and assign a relevant reviewer.
