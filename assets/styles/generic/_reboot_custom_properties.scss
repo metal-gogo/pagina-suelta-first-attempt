@@ -1,0 +1,23 @@
+@import "@/assets/styles/settings/variables";
+@import "@/assets/styles/tools/functions/get_shade";
+@import "@/assets/styles/tools/mixins/import_once";
+
+@include import-once("generic/custom_properties") {
+  :root {
+    --primary: #{$african-violet};
+    --primary-80: #{get-shade($african-violet, 80)};
+    --primary-115: #{get-shade($african-violet, 115)};
+    --text-color: #{$gainsboro};
+    --bg-color: #{$gunmetal};
+    --bg-color-90: #{get-shade($gunmetal, 90)};
+    --disabled: #{$lavender-gray};
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --text-color: #{$gunmetal};
+      --bg-color: #{$beau-blue};
+      --bg-color-90: #{get-shade($beau-blue, 90)};
+    }
+  }
+}
