@@ -35,7 +35,7 @@
 - **Linting**: We are using [eslint][eslint] to lint our code. Eslint is a pluggable linting utility for JavaScript to keep our codebase written consistently. We are extending from [Nuxt recommended configuration][nuxt_eslint]. We are also using [stylelint][stylelint], a mighty, modern linter that helps us avoid errors and enforce conventions in our styles. As a final touch, we are using [commitlint][commitlint] to ensure that all commits follow our conventions.
 - **Code formatter**: To keep our codebase written consistently and reducing the feedback loop for linting errors, we are using [Prettier][prettier] as our code formatter. Prettier is an opinionated code formatter with support for JavaScript, CSS, and JSON. With Prettier, you can format the code you write automatically to ensure the coding style within your project.
 - **Styling**: We will be using [SCSS][scss], the most mature, stable, and powerful professional grade CSS extension language in the world. Nuxt implements [autoprefixer][nuxt_autoprefixer] by default to add vendor prefixes according to the [can I use][caniuse] website.
-- **Testing**: We require to have great code coverage with meaningful tests. As we are using Vue, and we will write most of our code with JavasScript, we use [Jest][jest] as our testing framework. We are also using [Vue Testing Library][vue-testing-library] to test the UI components.
+- **Testing**: We require to have great code coverage with meaningful tests. As we are using Vue, and we will write most of our code with JavasScript, we use [Jest][jest] as our testing framework. We are also using [Vue Testing Library][vue_testing_library] to test the UI components.
 
 ## Development Tools Setup
 
@@ -159,7 +159,7 @@ For a more detailed explanation of our testing conventions, please read our [tes
 
 ## Styling
 
-For our CSS architecture we are using [ITCSS][itcss], with [BEM][bem] as our naming convention. You can read more about how we write our code regarding our styles [here][/docs/styling.md].
+For our CSS architecture we are using [ITCSS][itcss], with [BEM][bem] as our naming convention. You can read more about how we write our code regarding our styles [here](/docs/styling.md).
 
 ## Dependencies
 
@@ -238,3 +238,4 @@ Please read through our [contributing guidelines](/docs/contributing.md). Includ
 [bem]: http://getbem.com/
 [sarah_dayan_dependency_thread]: https://twitter.com/frontstuff_io/status/1264189583220244480
 [bridge_pattern]: https://refactoring.guru/design-patterns/bridge
+[axios]: https://github.com/axios/axios
