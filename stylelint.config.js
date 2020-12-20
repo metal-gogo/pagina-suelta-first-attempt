@@ -5,8 +5,10 @@ const modifier = `(?:--${word})?`
 const bemPattern = `^${block}${element}${modifier}$`
 
 module.exports = {
+  plugins: ['stylelint-scss'],
   extends: [
     'stylelint-config-standard',
+    'stylelint-config-sass-guidelines',
     'stylelint-config-prettier',
     'stylelint-config-recess-order',
   ],
@@ -20,5 +22,6 @@ module.exports = {
         ignore: ['attribute'],
       },
     ],
+    'order/properties-alphabetical-order': null,
   },
 }
