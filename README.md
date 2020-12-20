@@ -12,12 +12,13 @@
       - [OSX](#osx)
       - [Ubuntu](#ubuntu)
     - [Enable EditorConfig](#enable-editorconfig)
+  - [Linting](#linting)
     - [Enable Prettier](#enable-prettier)
     - [Debugging](#debugging)
-  - [Linting](#linting)
   - [Testing](#testing)
     - [Filename Conventions](#filename-conventions)
     - [Running our tests](#running-our-tests)
+  - [Styling](#styling)
   - [Dependencies](#dependencies)
     - [Bridge pattern](#bridge-pattern)
     - [Exceptions](#exceptions)
@@ -32,8 +33,8 @@
 - **Package Manager**: We use several node packages, and we prefer using [Yarn][yarn] over npm to manage our dependencies. Therefore in this project, there should only be a `yarn.lock` file and not a `package-lock.json` file.
 - **Development**: We are using [Vue][vue]. This project was bootstrapped with [Nuxt][nuxt]. You can learn more about **Nuxt** on [this copy of the project README.md](/docs/nuxt.md).
 - **Linting**: We are using [eslint][eslint] to lint our code. Eslint is a pluggable linting utility for JavaScript to keep our codebase written consistently. We are extending from [Nuxt recommended configuration][nuxt_eslint]. We are also using [stylelint][stylelint], a mighty, modern linter that helps us avoid errors and enforce conventions in our styles. As a final touch, we are using [commitlint][commitlint] to ensure that all commits follow our conventions.
-- **Code formatter**: To keep our codebase written consistently and reducing the feedback loop for linting errors, we are using [Prettier][prettier] as our code formatter. Prettier is an opinionated code formatter with support for JavaScript, CSS, and JSON. With Prettier, you can format the code you write automatically to ensure a code style within your project.
-- **Styling**: We are using [ITCSS][itcss]. You can read more about how we are implementing it [here](/docs/styling_with_itcss.md). We will be using [SCSS][scss], the most mature, stable, and powerful professional grade CSS extension language in the world. 
+- **Code formatter**: To keep our codebase written consistently and reducing the feedback loop for linting errors, we are using [Prettier][prettier] as our code formatter. Prettier is an opinionated code formatter with support for JavaScript, CSS, and JSON. With Prettier, you can format the code you write automatically to ensure the coding style within your project.
+- **Styling**: We will be using [SCSS][scss], the most mature, stable, and powerful professional grade CSS extension language in the world. Nuxt implements [autoprefixer][nuxt_autoprefixer] by default to add vendor prefixes according to the [can I use][caniuse] website.
 - **Testing**: We require to have great code coverage with meaningful tests. As we are using Vue, and we will write most of our code with JavasScript, we use [Jest][jest] as our testing framework. We are also using [Vue Testing Library][vue-testing-library] to test the UI components.
 
 ## Development Tools Setup
@@ -55,16 +56,6 @@ We recommended to run the setup script whenever you pull from the `develop` bran
 ### Enable EditorConfig
 
 EditorConfig helps maintain consistent coding styles for all developers working on the project across various editors and IDEs. We have this configured in our [.editorconfig](/.editorconfig) file. Make sure to [configure your editor or IDE][editorconfig_instructions].
-
-### Enable Prettier
-
-One of our dependencies is [Prettier][prettier]. Prettier is an opinionated code formatter for our codebase. Prettier works best by enabling its format on document save. In order to do this in vscode you need to install this [eslint extension][eslint_vscode_extension], and configure the IDE. We already have this configured in the [.vscode/settings.json](/.vscode/settings.json) file.
-
-### Debugging
-
-We have configured to debug our app on Chrome. To do this, you need to install this [Debugger for Chrome][debbuger_for_chrome] extension on your vscode, and configure the IDE. We already have this configured in the [/.vscode/launch.json](/.vscode/launch.json) file. 
-
-You can add some breakpoints by by writing `debugger` statements in any part of the code while running the debugger.
 
 ## Linting
 
@@ -110,6 +101,16 @@ yarn lint:fix
 
 Additionally, there is a script configured to prevent us from committing files with linting issues. Whenever you try to commit, the linting will run and stop the commit if there is an issue with the code.
 
+### Enable Prettier
+
+One of our dependencies is [Prettier][prettier]. Prettier is an opinionated code formatter for our codebase. Prettier works best by enabling its format on document save. In order to do this in vscode you need to install this [eslint extension][eslint_vscode_extension], and configure the IDE. We already have this configured in the [.vscode/settings.json](/.vscode/settings.json) file.
+
+### Debugging
+
+We have configured to debug our app on Chrome. To do this, you need to install this [Debugger for Chrome][debbuger_for_chrome] extension on your vscode, and configure the IDE. We already have this configured in the [/.vscode/launch.json](/.vscode/launch.json) file. 
+
+You can add some breakpoints by by writing `debugger` statements in any part of the code while running the debugger.
+
 ## Testing
 
 We are using [jest][jest] to make our unit testing. This is already configured in the [jest.config.js](./jest.config.js).
@@ -126,7 +127,7 @@ Jest will look for test files with any of the following popular naming conventio
 - Files with `.test.js` suffix.
 - Files with `.spec.js` suffix.
 
-However, we should put the test files next to the code they are testing so that relative imports appear shorter. For example, if `App.test.js` and `App.vue` are in the same folder, the test only needs to `import App from './App'` instead of a long relative path. Collocation also helps find tests more quickly.
+However, we should put the test files next to the code they are testing so that relative imports appear shorter. For example, if `App.spec.js` and `App.vue` are in the same folder, the test only needs to `import App from './App'` instead of a long relative path. Collocation also helps find tests more quickly.
 
 ### Running our tests
 
@@ -156,6 +157,10 @@ The watcher includes an interactive command-line interface with the ability to r
 
 For a more detailed explanation of our testing conventions, please read our [testing guidelines](/docs/testing.md).
 
+## Styling
+
+For our CSS architecture we are using [ITCSS][itcss], with [BEM][bem] as our naming convention. You can read more about how we write our code regarding our styles [here][/docs/styling.md].
+
 ## Dependencies
 
 We've decided to wrap third-party dependencies into custom abstractions. As [this thread][sarah_dayan_dependency_thread] explains, the wrapped dependency is isolated, and if a change in the API of that dependency changes, there is only one change point in our codebase (making sure you respect the interface).
@@ -177,6 +182,7 @@ There is a few exceptions for using the **bridge pattern**:
 - `vue`
 - `nuxt`
 - `@vue/test-utils`
+- `scss`
 
 After all, we are making a **Nuxt** project, and these are the core libraries that we are using. If the API of these dependencies changes, then we should update our codebase accordingly.
 
@@ -219,13 +225,16 @@ Please read through our [contributing guidelines](/docs/contributing.md). Includ
 [stylelint]: https://stylelint.io/
 [commitlint]: https://commitlint.js.org/
 [prettier]: https://prettier.io/
-[itcss]: https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
 [scss]: https://sass-lang.com/
+[nuxt_autoprefixer]: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build#postcss
+[caniuse]: https://caniuse.com/
 [jest]: https://jestjs.io/
 [vue_testing_library]: https://testing-library.com/docs/vue-testing-library/intro/
 [editorconfig_instructions]: https://editorconfig.org/#download
 [eslint_vscode_extension]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 [debbuger_for_chrome]: https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome
 [tdd]: https://medium.freecodecamp.org/test-driven-development-what-it-is-and-what-it-is-not-41fa6bca02a2
+[itcss]: https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+[bem]: http://getbem.com/
 [sarah_dayan_dependency_thread]: https://twitter.com/frontstuff_io/status/1264189583220244480
 [bridge_pattern]: https://refactoring.guru/design-patterns/bridge
