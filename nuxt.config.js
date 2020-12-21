@@ -55,13 +55,27 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
+    // https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // https://prismic.nuxtjs.org/
+    '@nuxtjs/prismic',
   ],
+
+  // Prismic configuration (https://prismic.nuxtjs.org/configuration)
+  prismic: {
+    endpoint: `https://${process.env.PRISMIC_REPOSITORY}.cdn.prismic.io/api/v2`,
+    linkResolver: '@/plugins/prismic/linkResolver',
+    htmlSerializer: '@/plugins/prismic/htmlSerializer',
+    apiOptions: {
+      accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+    },
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
