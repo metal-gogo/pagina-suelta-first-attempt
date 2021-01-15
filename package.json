@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.3",
-    "core-js": "^3.8.1",
+    "core-js": "^3.8.2",
     "nuxt": "^2.14.12"
   },
   "devDependencies": {
