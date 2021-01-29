@@ -1,6 +1,9 @@
 @import "@/assets/styles/settings/variables";
-@import "tools/functions";
+@import "@/assets/styles/tools/functions";
 @import "@/assets/styles/tools/mixins";
-@import "generic/reboot";
-@import "elements/typography";
-@import "objects/body_without_scroll";
+@import "@/assets/styles/generic/reboot";
+@import "@/assets/styles/elements/typography";
+@import "@/assets/styles/objects/body_without_scroll";
+@import "@/assets/styles/objects/container";
+@import "@/assets/styles/objects/image";
+@import "@/assets/styles/objects/title";

@@ -5,7 +5,7 @@
 @mixin headline-1($color: var(--text-color)) {
   margin-bottom: 2.5rem;
   font-family: "Permanent Marker", cursive;
-  font-size: 2.2rem;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  line-height: 1.3;
   color: $color;
 }

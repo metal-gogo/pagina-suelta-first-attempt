@@ -1,0 +1,33 @@
+@import '@/assets/styles/settings/variables';
+@import '@/assets/styles/tools/mixins/import_once';
+
+@include import_once('objects/container') {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: $breakpoint-extra-large;
+    padding: 0.5rem 0.25rem;
+    margin: 0 auto;
+
+    @media screen and (min-width: $breakpoint-tiny) {
+      padding: 0.5rem;
+    }
+
+    @media screen and (min-width: $breakpoint-small) {
+      padding: 1rem 0.5rem;
+    }
+
+    @media screen and (min-width: $breakpoint-medium) {
+      padding: 1rem;
+    }
+
+    @media screen and (min-width: $breakpoint-large) {
+      padding: 2rem 1rem;
+    }
+
+    @media screen and (min-width: $breakpoint-extra-large) {
+      padding: 2rem;
+    }
+  }
+}
